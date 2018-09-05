@@ -5,6 +5,7 @@
  */
 package edu.cuc.testing;
 
+import edu.cuc.metodosSimulacion.Queues;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,9 +38,9 @@ public class SimuladorTesting {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    public void testEnqueueIsEmpy(){
+        Queues<String> queues = new Queues();
+        queues.enqueue("PruebaTest");
+        assertEquals("La cola a sido agregada correctamente", queues.getFirst(), queues.dequeue());
+    }
 }
