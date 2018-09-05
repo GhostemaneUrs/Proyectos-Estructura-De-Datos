@@ -5,6 +5,12 @@
  */
 package edu.cuc.vistasSimulacion;
 
+import edu.cuc.metodosSimulacion.Metodos;
+import static edu.cuc.metodosSimulacion.Metodos.mostrarQueues;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author Estudiante Redes
@@ -16,8 +22,23 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
      */
     public PaginaPrincipalSimulador() {
         initComponents();
+        reproducir = new Timer(10000, acciones);
+        ventana2 = new PaginaSecundariaSimulador(this, true);
     }
-
+    Timer reproducir;
+    PaginaSecundariaSimulador ventana2;
+    ActionListener acciones = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (!Metodos.Vacio()) {
+            Metodos.mostrarQueues(mostrarArchivos);
+            ventana2.setVisible(true);
+            } else {
+            reproducir.stop();
+            }
+            
+        }
+    };
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,7 +51,7 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        mostrarArchivos = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnCargarDatos = new javax.swing.JButton();
         btnSimuladorImpresion = new javax.swing.JButton();
@@ -50,9 +71,9 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setFocusCycleRoot(true);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 130));
+        jPanel2.add(mostrarArchivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 130));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 190, 150));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 210, 150));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/cuc/imagenesSimulacion/ImpresoraImagen.jpeg"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 190, 160));
@@ -60,11 +81,21 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
         btnCargarDatos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCargarDatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/cuc/imagenesSimulacion/folder.jpeg"))); // NOI18N
         btnCargarDatos.setText("Cargar Datos");
+        btnCargarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarDatosActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCargarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         btnSimuladorImpresion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSimuladorImpresion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/cuc/imagenesSimulacion/process.jpeg"))); // NOI18N
         btnSimuladorImpresion.setText("Iniciar Simulación");
+        btnSimuladorImpresion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimuladorImpresionActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSimuladorImpresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -87,6 +118,17 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarDatosActionPerformed
+        // TODO add your handling code here:
+        Metodos.agregarArchivos();
+        Metodos.mostrarQueues(mostrarArchivos);
+    }//GEN-LAST:event_btnCargarDatosActionPerformed
+
+    private void btnSimuladorImpresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimuladorImpresionActionPerformed
+        // TODO add your handling code here:
+        reproducir.start();
+    }//GEN-LAST:event_btnSimuladorImpresionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,9 +170,9 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
     private javax.swing.JButton btnSimuladorImpresion;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel mostrarArchivos;
     // End of variables declaration//GEN-END:variables
 }

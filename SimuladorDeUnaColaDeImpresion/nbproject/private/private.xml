@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/PROGRAMACIÓN/Estructura%20De%20Datos%20Proyectos/SimuladorDeUnaColaDeImpresion/src/edu/cuc/vistasSimulacion/PaginaSecundariaSimulador.java</file>
             <file>file:/E:/PROGRAMACIÓN/Estructura%20De%20Datos%20Proyectos/SimuladorDeUnaColaDeImpresion/src/edu/cuc/vistasSimulacion/PaginaPrincipalSimulador.java</file>
+=======
+            <file>file:/C:/Users/mprjs/Desktop/Repositorio_proyecto/SimuladorDeUnaColaDeImpresion/src/edu/cuc/vistasSimulacion/PaginaSecundariaSimulador.java</file>
+            <file>file:/C:/Users/mprjs/Desktop/Repositorio_proyecto/SimuladorDeUnaColaDeImpresion/src/edu/cuc/metodosSimulacion/Queues.java</file>
+            <file>file:/C:/Users/mprjs/Desktop/Repositorio_proyecto/SimuladorDeUnaColaDeImpresion/src/edu/cuc/metodosSimulacion/MetodoDeJDialog.java</file>
+            <file>file:/C:/Users/mprjs/Desktop/Repositorio_proyecto/SimuladorDeUnaColaDeImpresion/src/edu/cuc/vistasSimulacion/PaginaPrincipalSimulador.java</file>
+            <file>file:/C:/Users/mprjs/Desktop/Repositorio_proyecto/SimuladorDeUnaColaDeImpresion/src/edu/cuc/metodosSimulacion/Metodos.java</file>
+>>>>>>> ba1b6a53d83c171a6b86f55f424971218cc2c09f
         </group>
     </open-files>
 </project-private>

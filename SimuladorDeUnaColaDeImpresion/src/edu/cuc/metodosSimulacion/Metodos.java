@@ -1,13 +1,17 @@
 
 package edu.cuc.metodosSimulacion;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -15,6 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class Metodos {
     private static final Queues<String> listaQueues = new Queues<>();
+    private static  Timer tiempo; 
+    private static  ActionListener reproducir; 
+    
 
     public static void agregarArchivos() {
         try {
@@ -41,13 +48,8 @@ public class Metodos {
         mostrarTexto.setText(acomulador);
     }
 
-    public static boolean borrarArchivo(JLabel mostrarTexto) {
-        if (listaQueues.dequeue() != null) {
-            mostrarQueues(mostrarTexto);
-            return true;
-        } else {
-            return false;
-        }
+    public static void borrarArchivo() {
+      listaQueues.dequeue();      
     }
 
     public static int verSegundos() {
@@ -58,5 +60,26 @@ public class Metodos {
         System.out.println(segundo);
         return segundo;
     }
-
+    
+    public static boolean Vacio(){
+        return listaQueues.IsEmpty();
+    }
+            
+    
+    public static void abrirJDialog(JDialog ventana, JLabel label){
+        tiempo = new Timer(1000, reproducir);
+         tiempo.start(); 
+        reproducir = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!listaQueues.IsEmpty()) {
+                    mostrarQueues(label);
+                    ventana.setVisible(true);
+                } else {
+                    tiempo.stop();
+                }
+            }
+        };
+ 
+    }
 }

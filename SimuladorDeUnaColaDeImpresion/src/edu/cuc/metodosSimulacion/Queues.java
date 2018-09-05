@@ -12,13 +12,13 @@ public class Queues<T> {
     private Node<T> ultimo;
     private int tamaño = 0;
     
-    public boolean IsEmpy(){
+    public boolean IsEmpty(){
         return inicio == null;
     }
     
     public void enqueue(T dato){
         Node<T> NuevoNodo = new Node<>(dato);
-        if (IsEmpy()) {
+        if (IsEmpty()) {
             inicio = NuevoNodo;
             ultimo = NuevoNodo;
         } else {
@@ -29,7 +29,7 @@ public class Queues<T> {
         tamaño++;
     } 
     public Node<T> dequeue(){
-         if (IsEmpy())
+         if (IsEmpty())
              return null;
          else {
              Node<T> nodo = inicio;
@@ -50,7 +50,7 @@ public class Queues<T> {
     }
     
     public T peek(){
-        if (IsEmpy()) {
+        if (IsEmpty()) {
             return null;
         } else {
             return inicio.getInformacion();
@@ -91,7 +91,7 @@ public class Queues<T> {
         return cola;
     }
      public T getFirst() {
-        if (IsEmpy()) {
+        if (IsEmpty()) {
             return null;
         } else {
            return inicio.getInformacion();
@@ -99,7 +99,7 @@ public class Queues<T> {
     }
     
     public T getLast() {
-        if (IsEmpy()) {
+        if (IsEmpty()) {
             return null;
         } else {
             return ultimo.getInformacion();
