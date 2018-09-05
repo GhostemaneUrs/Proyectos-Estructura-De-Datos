@@ -23,6 +23,7 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
         initComponents();
         reproducir = new Timer(10000, acciones);
         ventana2 = new PaginaSecundariaSimulador(this, true);
+        btnSimuladorImpresion.setEnabled(false);
     }
     Timer reproducir;
     PaginaSecundariaSimulador ventana2;
@@ -129,10 +130,12 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
         // TODO add your handling code here:
         Metodos.agregarArchivos();
         Metodos.mostrarQueues(mostrarArchivos);
+        btnSimuladorImpresion.setEnabled(true);
     }//GEN-LAST:event_btnCargarDatosActionPerformed
 
     private void btnSimuladorImpresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimuladorImpresionActionPerformed
-        // TODO add your handling code here:
+        ventana2.setVisible(true);
+        Metodos.mostrarQueues(mostrarArchivos);
         reproducir.start();
     }//GEN-LAST:event_btnSimuladorImpresionActionPerformed
 

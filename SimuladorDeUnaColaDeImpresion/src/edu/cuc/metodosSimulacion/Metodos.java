@@ -48,10 +48,6 @@ public class Metodos {
         mostrarTexto.setText(acomulador);
     }
    
-    public static void borrarprimero(JLabel mostrarTexto){
-        
-    }
-
     public static void borrarArchivo() {
       listaQueues.dequeue();      
     }
