@@ -5,6 +5,7 @@
  */
 package edu.cuc.metodosSimulacion;
 
+import edu.cuc.vistasSimulacion.PaginaSecundariaSimulador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -18,11 +19,12 @@ import javax.swing.Timer;
  */
 public class MetodoDeJDialog implements WindowListener{
     private Timer t;
-    private JDialog ventana;
+    private  PaginaSecundariaSimulador ventana;
 
-    public MetodoDeJDialog(JDialog ventana) {
-        this.ventana = ventana;
+    public MetodoDeJDialog(PaginaSecundariaSimulador mostrar) {
+        this.ventana = mostrar;
     }
+
 
     @Override
     public void windowOpened(WindowEvent e) {}
@@ -36,6 +38,8 @@ public class MetodoDeJDialog implements WindowListener{
     public void windowDeiconified(WindowEvent e) {}
     @Override
     public void windowActivated(WindowEvent e) {
+   
+    ventana.mostarImpresion(Metodos.vernombres());
     t = new Timer(Metodos.verSegundos() * 1000, acciones);
     t.start();
     }

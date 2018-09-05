@@ -19,8 +19,8 @@ import javax.swing.Timer;
  */
 public class Metodos {
     private static final Queues<String> listaQueues = new Queues<>();
-    private static  Timer tiempo; 
-    private static  ActionListener reproducir; 
+
+    
     
 
     public static void agregarArchivos() {
@@ -43,9 +43,13 @@ public class Metodos {
         Iterator<String> it = listaQueues.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            acomulador += next;
+            acomulador += "\t"+next;
         }
         mostrarTexto.setText(acomulador);
+    }
+   
+    public static void borrarprimero(JLabel mostrarTexto){
+        
     }
 
     public static void borrarArchivo() {
@@ -61,25 +65,13 @@ public class Metodos {
         return segundo;
     }
     
+     public static String vernombres() {
+        String nombreArchivo = listaQueues.peek();
+        String[] division = nombreArchivo.split(",");
+        return division[0];
+    }
+    
     public static boolean Vacio(){
         return listaQueues.IsEmpty();
-    }
-            
-    
-    public static void abrirJDialog(JDialog ventana, JLabel label){
-        tiempo = new Timer(1000, reproducir);
-         tiempo.start(); 
-        reproducir = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (!listaQueues.IsEmpty()) {
-                    mostrarQueues(label);
-                    ventana.setVisible(true);
-                } else {
-                    tiempo.stop();
-                }
-            }
-        };
- 
     }
 }
