@@ -31,12 +31,13 @@ public class PaginaPrincipalSimulador extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (!Metodos.Vacio()) {
-            Metodos.mostrarQueues(mostrarArchivos);
+            reproducir.stop();
             ventana2.setVisible(true);
+            Metodos.mostrarQueues(mostrarArchivos);
+            reproducir.start();
             } else {
             reproducir.stop();
             }
-            
         }
     };
     /**
